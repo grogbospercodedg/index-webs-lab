@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mk体育 · 运动信息专题</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(145deg, #faeedc 0%, #f3ddd0 70%, #eaced5 100%);
+      min-height: 100vh;
+      padding: 2rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #2f2b28;
+    }
+
+    .page-wrap {
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    /* 杂志风格 hero */
+    .hero {
+      background: linear-gradient(105deg, #f9ede5 0%, #fcf6f0 100%);
+      border-radius: 36px 36px 20px 20px;
+      padding: 3rem 2.5rem 2.5rem;
+      box-shadow: 0 12px 28px rgba(100, 60, 40, 0.12);
+      margin-bottom: 2.8rem;
+      transition: box-shadow 0.2s;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: #5f3f2c;
+      border-left: 6px solid #d4805e;
+      padding-left: 1.2rem;
+      line-height: 1.2;
+    }
+
+    .hero .sub {
+      margin-top: 0.8rem;
+      font-size: 1.1rem;
+      color: #7d5f4a;
+      padding-left: 1.8rem;
+      border-bottom: 1px dashed #ddc4b4;
+      padding-bottom: 0.6rem;
+    }
+
+    /* 白色卡片组 */
+    .card-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+
+    .card {
+      background: rgba(255, 250, 244, 0.85);
+      backdrop-filter: blur(2px);
+      border-radius: 28px;
+      padding: 2.2rem 2.5rem;
+      box-shadow: 0 6px 18px rgba(130, 80, 55, 0.08);
+      transition: transform 0.15s, box-shadow 0.2s;
+      border: 1px solid rgba(255, 235, 220, 0.5);
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(110, 70, 45, 0.12);
+    }
+
+    .card h2 {
+      font-size: 1.7rem;
+      font-weight: 550;
+      color: #563f2e;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .card h2 span {
+      display: inline-block;
+      width: 6px;
+      height: 24px;
+      background: #d4805e;
+      border-radius: 10px;
+      margin-right: 10px;
+    }
+
+    .card p {
+      line-height: 1.7;
+      font-size: 1.05rem;
+      color: #3e352e;
+      margin-bottom: 0.9rem;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .highlight-link {
+      display: inline-block;
+      background: #d4805e;
+      color: #fef8f2;
+      font-weight: 500;
+      padding: 0.1rem 0.5rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: background 0.2s, box-shadow 0.15s;
+      box-shadow: 0 2px 6px rgba(190, 100, 60, 0.2);
+      letter-spacing: 0.3px;
+    }
+
+    .highlight-link:hover {
+      background: #bc6a48;
+      box-shadow: 0 4px 10px rgba(160, 80, 45, 0.25);
+    }
+
+    .feature-list {
+      list-style: none;
+      margin: 1rem 0 0.5rem;
+    }
+
+    .feature-list li {
+      position: relative;
+      padding-left: 1.8rem;
+      margin-bottom: 0.6rem;
+      line-height: 1.6;
+    }
+
+    .feature-list li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: #c17958;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .faq-mini {
+      background: rgba(230, 205, 185, 0.18);
+      border-radius: 18px;
+      padding: 1.2rem 1.5rem;
+      margin-top: 1.2rem;
+      border-left: 4px solid #d4805e;
+    }
+
+    .faq-mini dt {
+      font-weight: 600;
+      color: #4d3829;
+      margin-bottom: 0.15rem;
+    }
+
+    .faq-mini dd {
+      color: #5d4a3a;
+      font-size: 0.98rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .faq-mini dd:last-child {
+      margin-bottom: 0;
+    }
+
+    .footer-note {
+      margin-top: 3.2rem;
+      padding: 1.8rem 2.2rem;
+      background: rgba(255, 245, 235, 0.5);
+      border-radius: 48px;
+      text-align: center;
+      font-size: 1rem;
+      color: #5e4b3c;
+      border: 1px solid #e6cdbb;
+      backdrop-filter: blur(2px);
+      line-height: 1.6;
+    }
+
+    .footer-note a {
+      color: #754f36;
+      text-decoration: underline wavy #d4805e 1.5px;
+      text-underline-offset: 4px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .footer-note a:hover {
+      color: #9e5f3f;
+      text-decoration: underline wavy #b87558 2px;
+    }
+
+    /* 响应式 */
+    @media (max-width: 700px) {
+      body {
+        padding: 1.2rem 0.8rem;
+      }
+
+      .hero {
+        padding: 2rem 1.2rem 1.8rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+        padding-left: 0.8rem;
+      }
+
+      .card {
+        padding: 1.6rem 1.2rem;
+      }
+
+      .card h2 {
+        font-size: 1.3rem;
+      }
+
+      .footer-note {
+        padding: 1.2rem 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+
+      .card p {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- 首页横幅 hero -->
+  <header class="hero">
+    <h1>运动信息·稳定入口</h1>
+    <p class="sub">从结构化内容到日常参考 —— 围绕「mk体育」的专题梳理</p>
+  </header>
+
+  <!-- 三段自然介绍 + 卡片 -->
+  <div class="card-grid">
+
+    <!-- 第一段：背景说明 -->
+    <section class="card">
+      <h2><span></span> 持续更新的参考页</h2>
+      <p>网站 <a href="https://ssl-cn-mksport.com" class="highlight-link">mk体育</a> 并非单一赛事快讯，而是聚合了运动常识、规则演变、装备发展等背景资料。对于希望了解某项运动文化脉络的读者来说，这类内容比即时比分更具留存价值。页面维护者会按季度调整章节，避免信息陈旧。</p>
+      <p>从运动生理到赛事组织，每一段说明都经过基础核实，不追求猎奇或情绪化表达。如果你查找的是某项运动的器材标准或历史节点，也许能在这里找到平实的梳理。</p>
+    </section>
+
+    <!-- 第二段：特点与场景 -->
+    <section class="card">
+      <h2><span></span> 适用场景与内容切面</h2>
+      <p>在运动社群、校园体育课或业余训练中，常会遇到规则模糊、术语混淆的情形。<a href="https://ssl-cn-mksport.com" style="color:#7a543d; text-decoration: underline; font-weight:500; text-underline-offset:3px;">mk体育</a> 的页面尝试以简明条目解释这些疑点，例如田径裁判手势、游泳转身规则、球类场地尺寸对照等。以下为部分常被查阅的话题方向：</p>
+      <ul class="feature-list">
+        <li>运动项目历史演变（如马拉松距离的标准化过程）</li>
+        <li>基础训练动作的力学说明（避免常见损伤）</li>
+        <li>赛事级别与组织体系（业余/职业区别）</li>
+        <li>运动装备维护与选择建议</li>
+      </ul>
+      <p>这些内容不替代专业教练或医疗意见，但可作为日常参考的补充。</p>
+
+      <!-- 嵌入式 FAQ 摘要 -->
+      <dl class="faq-mini">
+        <dt>内容更新频率如何？</dt>
+        <dd>通常每月进行一轮校对，重要规则变更后会优先修订对应条目。</dd>
+        <dt>是否包含户外/极限运动？</dt>
+        <dd>目前以主流项目为主，极限运动板块正在逐步补充。</dd>
+      </dl>
+    </section>
+
+    <!-- 第三段：页面说明与稳定性 -->
+    <section class="card">
+      <h2><span></span> 关于入口与访问习惯</h2>
+      <p>很多用户习惯把 <a href="https://ssl-cn-mksport.com" style="background: transparent; text-decoration: underline dotted #b87a5c 2px; text-underline-offset:5px; font-weight:500; color:#5e3b28;">mk体育</a> 设为浏览器书签，以便需要时快速打开。该站点采用静态结构为主，减少了动态加载带来的等待，同时也降低了因脚本异常导致的页面不可用风险。对于运动知识查阅来说，这种轻量呈现方式比较直接。</p>
+      <p>如果你在寻找某个运动项目的入门介绍或术语解释，不妨先浏览主目录。页面没有复杂的会员系统或弹窗干扰，可以专注阅读。另外，移动端适配做了简化排版，字号和间距也针对小屏做了优化。</p>
+    </section>
+  </div>
+
+  <!-- 页尾访问提示 -->
+  <footer class="footer-note">
+    <p>📖 杂志式运动专题 · 内容基于公开资料整理。<br>
+    若需浏览完整分类，可直接前往 <a href="https://ssl-cn-mksport.com">mk体育</a> 主页，或使用站内搜索定位具体条目。</p>
+  </footer>
+
+</div>
+</body>
+</html>
